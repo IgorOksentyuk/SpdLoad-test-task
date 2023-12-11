@@ -1,0 +1,14 @@
+.swiper-pagination-bullet {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  opacity: 1;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+  background-image: url("../../../assets/active-bullet.png");
+  background-position: center;
+  background-size: 120%;
+}

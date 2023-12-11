@@ -1,0 +1,20 @@
+.swiper-slide {
+  max-width: auto !important;
+}
+
+#cards-wrapper .swiper-horizontal {
+  max-width: 1280px;
+}
+
+#cards-bullets-container .swiper-pagination-bullet {
+  width: 24px;
+  border: 2px solid #000;
+}
+
+#cards-bullets-container .swiper-pagination-bullet-active {
+  background-image: url("../../../assets/active-cards-bullet.png");
+}
+
+.swiper-button-disabled {
+  cursor: not-allowed !important;
+}

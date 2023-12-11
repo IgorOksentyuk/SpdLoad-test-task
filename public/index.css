@@ -1,1 +1,5 @@
 @import url("./normalize.css");
+
+html {
+  scroll-behavior: smooth;
+}

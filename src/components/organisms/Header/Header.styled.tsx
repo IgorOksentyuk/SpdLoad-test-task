@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
-  z-index: 5;
+  z-index: 11;
   width: 100%;
-  max-width: 1440px;
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -18,6 +17,11 @@ export const HeaderLogo = styled.img`
   width: 229px;
   height: 42px;
   margin-left: 80px;
+`;
+
+export const HeaderLink = styled.a`
+  text-decoration: none;
+  color: #fff;
 `;
 
 export const Navigation = styled.nav`

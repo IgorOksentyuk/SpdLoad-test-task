@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const LoginBtnTemp = styled.div`
+interface MainBtnProps {
+  width?: string;
+}
+
+export const MainBtnTemp = styled.div<MainBtnProps>`
   font-family: 'Syne', sans-serif;
   font-size: 24px;
   font-weight: 600;
   text-transform: uppercase;
 
-  width: 163px;
+  width: ${(props) => props.width || '163px'};
   height: 53px;
   display: flex;
   justify-content: center;
