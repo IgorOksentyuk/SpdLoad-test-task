@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/swiper-bundle.css';
+import { useQuery } from "@apollo/client";
+import gql from "graphql-tag";
 
 import {
   ArrowIcon,
@@ -19,7 +21,23 @@ import "./style.css";
 import arrowLeft from "../../../assets/arrow-left.png";
 import arrowRight from "../../../assets/arrow-right.png";
 
+const ROCKETS_QUERY = gql`
+  query ExampleQuery {
+    rockets {
+      id
+      description
+      name
+    }
+  }
+`;
+
 export const CardsSlider = () => {
+  const { loading, error, data } = useQuery(ROCKETS_QUERY);
+
+  if (loading) return <p style={{ textAlign: 'center', fontSize: '36px' }}>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const rockets = data?.rockets;
   return (
     <CardsSliderWrapper id="cards-wrapper">
       <TopContainer>
@@ -49,38 +67,13 @@ export const CardsSlider = () => {
           nextEl: `#nextBtnId`,
         }}
       >
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Card />
-        </SwiperSlide>
-
+        {
+          rockets.map(rocket => (
+            <SwiperSlide>
+              <Card rocket={rocket} key={rocket.id} />
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
 
       <CardsBulletsContainner id='cards-bullets-container' />
