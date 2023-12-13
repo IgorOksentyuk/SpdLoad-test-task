@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { favoriteCardsState, rocketsState } from '../../../state/recoil.ts';
+import { favoriteCardsState } from '../../../state/recoil.ts';
 
 import {
   BannerWrapper,
@@ -19,9 +19,6 @@ import { Card } from '../../molecules/Card/Card.tsx';
 export const FavoritesPage = () => {
   const favoriteCards = useRecoilValue(favoriteCardsState);
   const setFavoriteCards = useSetRecoilState(favoriteCardsState);
-  const rockets = useRecoilValue(rocketsState);
-
-  console.log(rockets);
 
   const clearAllFavourites = () => {
     setFavoriteCards([]);
