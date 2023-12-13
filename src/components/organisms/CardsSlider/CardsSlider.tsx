@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/swiper-bundle.css';
-import { useQuery } from "@apollo/client";
 
 import {
   ArrowIcon,
@@ -19,16 +18,12 @@ import { Card } from "../../molecules/Card/Card.tsx";
 import "./style.css";
 import arrowLeft from "../../../assets/arrow-left.png";
 import arrowRight from "../../../assets/arrow-right.png";
+import { useRecoilValue } from "recoil";
+import { rocketsState } from "../../../state/recoil.ts";
 import { Rocket } from "../../../interfaces/Rocket.ts";
-import { ROCKETS_QUERY } from "../../../api/client.ts";
 
 export const CardsSlider = () => {
-  const { loading, error, data } = useQuery(ROCKETS_QUERY);
-
-  if (loading) return <p style={{ textAlign: 'center', fontSize: '36px' }}>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const rockets: Rocket[] = data?.rockets;
+  const rockets = useRecoilValue(rocketsState);
 
   return (
     <CardsSliderWrapper id="cards-wrapper">
@@ -63,7 +58,12 @@ export const CardsSlider = () => {
         {
           rockets.map((rocket: Rocket, index: number) => (
             <SwiperSlide key={rocket.id}>
-              <Card rocket={rocket} index={index} />
+              <Card
+                rocket={rocket}
+                index={index}
+                image={rocket.imageUrl}
+              />
+
             </SwiperSlide>
           ))
         }

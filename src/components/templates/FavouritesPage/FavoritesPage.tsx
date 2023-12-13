@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { favoriteCardsState } from '../../../state/recoil.ts';
+import { favoriteCardsState, rocketsState } from '../../../state/recoil.ts';
 
 import {
   BannerWrapper,
@@ -19,6 +19,9 @@ import { Card } from '../../molecules/Card/Card.tsx';
 export const FavoritesPage = () => {
   const favoriteCards = useRecoilValue(favoriteCardsState);
   const setFavoriteCards = useSetRecoilState(favoriteCardsState);
+  const rockets = useRecoilValue(rocketsState);
+
+  console.log(rockets);
 
   const clearAllFavourites = () => {
     setFavoriteCards([]);
@@ -38,7 +41,12 @@ export const FavoritesPage = () => {
       {favoriteCards.length > 0
         ? <CardsWrapper>
           {favoriteCards.map((rocket, i) => (
-            <Card key={rocket.id} rocket={rocket} index={i} />
+            <Card
+              key={rocket.id}
+              rocket={rocket}
+              index={i}
+              image={rocket.imageUrl}
+            />
           ))}
         </CardsWrapper>
         : <EmptyTitle>Your favourites is empty.</EmptyTitle>}

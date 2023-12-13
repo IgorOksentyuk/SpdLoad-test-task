@@ -11,20 +11,12 @@ import {
   CardWrapper,
 } from "./Card.styled.tsx";
 
-import firstImage from "../../../assets/main-slider-1.png";
-import secondImage from "../../../assets/main-slider-2.png";
-import thirdImage from "../../../assets/main-slider-3.png";
 import { FavouritesBtn } from "../../atoms/FavouritesBtn/FafouritesBtn.tsx";
 import { MainBtn } from "../../atoms/MainBtn/MainBtn.tsx";
 import { favoriteCardsState } from "../../../state/recoil.ts";
 
-const designImages = [firstImage, secondImage, thirdImage];
-
-export const Card = ({ rocket, index }) => {
+export const Card = ({ rocket, index, image }) => {
   const [favoriteCards, setFavoriteCards] = useRecoilState(favoriteCardsState);
-
-  const designImageIndex = index % 3;
-  const designImage = designImages[designImageIndex];
 
   const handleAddToFavorites = () => {
     setFavoriteCards((prevFavorites) => [...prevFavorites, rocket]);
@@ -42,7 +34,7 @@ export const Card = ({ rocket, index }) => {
 
   return (
     <CardWrapper>
-      <CardImage src={designImage} />
+      <CardImage src={image} />
 
       <CardContainer>
         <CardTextWrapper>
