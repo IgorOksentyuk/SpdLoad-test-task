@@ -1,4 +1,3 @@
-
 import React from "react";
 
 import { HomepageWrapper } from "./HomePage.styled.tsx";

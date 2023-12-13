@@ -9,7 +9,7 @@ export const CardWrapper = styled.div`
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 296px;
+  height: 260px;
   margin-bottom: 32px
 `;
 

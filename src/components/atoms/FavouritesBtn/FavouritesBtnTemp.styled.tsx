@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-export const FavouritesBtnLink = styled.a`
-`;
-
 export const FavouritesBtnTemp = styled.button`
   width: 53px;
   height: 53px;

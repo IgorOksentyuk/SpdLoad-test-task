@@ -3,29 +3,28 @@ import { FavouritesBtn } from "../../atoms/FavouritesBtn/FafouritesBtn.tsx";
 import { MainBtn } from "../../atoms/MainBtn/MainBtn.tsx";
 
 import {
-  HeaderLink,
   HeaderLogo,
   HeaderWrapper,
   ListItem,
   LoginWrapper,
   NavList,
   Navigation,
+  StyledNavLink,
 } from "./Header.styled.tsx";
 
 import headerLogo from '../../../assets/image_3.png';
-import { FavouritesBtnLink } from "../../atoms/FavouritesBtn/FavouritesBtnTemp.styled.tsx";
 
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <HeaderLink href="/">
+      <StyledNavLink to="/">
         <HeaderLogo src={headerLogo} />
-      </HeaderLink>
+      </StyledNavLink>
 
       <Navigation>
         <NavList>
           <ListItem>
-            <HeaderLink href="/">home</HeaderLink>
+            <StyledNavLink to="/">home</StyledNavLink>
           </ListItem>
 
           <ListItem>tours</ListItem>
@@ -35,9 +34,10 @@ export const Header = () => {
       </Navigation>
 
       <LoginWrapper>
-        <FavouritesBtnLink href="/favourites">
+        <StyledNavLink to="/favourites">
           <FavouritesBtn />
-        </FavouritesBtnLink>
+        </StyledNavLink>
+
         <MainBtn text={'sign in'} width={'163px'} />
       </LoginWrapper>
     </HeaderWrapper>

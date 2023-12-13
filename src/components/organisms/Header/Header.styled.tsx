@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const HeaderWrapper = styled.header`
   position: fixed;
@@ -19,7 +20,7 @@ export const HeaderLogo = styled.img`
   margin-left: 80px;
 `;
 
-export const HeaderLink = styled.a`
+export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   color: #fff;
 `;

@@ -44,6 +44,7 @@ export const CardsSlider = () => {
     <CardsSliderWrapper id="cards-wrapper">
       <TopContainer>
         <CardsTitle>popular tours</CardsTitle>
+
         <SliderButtonsContainer>
           <SliderButton id="prevBtnId">
             <ArrowIcon src={arrowLeft} />

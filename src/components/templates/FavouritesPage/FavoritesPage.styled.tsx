@@ -37,7 +37,7 @@ export const ClearAllBtn = styled.button`
   font-size: 24px;
   font-weight: 300;
 
-  margin: 64px 80px 0;
+  margin: 64px 80px 40px;
   border: none;
   background-color: transparent;
   color: #556B84;
@@ -50,5 +50,16 @@ export const ClearAllBtn = styled.button`
 `;
 
 export const CardsWrapper = styled.div`
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 80px;
+`;
+
+export const EmptyTitle = styled.h3`
+  text-align: center;
+  font-family: Lato;
+  font-size: 46px;
+  font-weight: 700;
+  color: #556B84;
 `;

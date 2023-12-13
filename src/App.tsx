@@ -9,12 +9,13 @@ const App = () => {
   return (
     <>
       <Header />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/favourites" element={<FavoritesPage />} />
       </Routes>
-    </>
 
+    </>
   );
 }
 

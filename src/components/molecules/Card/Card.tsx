@@ -30,9 +30,15 @@ export const Card = ({ rocket, index }) => {
     setFavoriteCards((prevFavorites) => [...prevFavorites, rocket]);
   };
 
-  console.log(favoriteCards);
+  const handleRemoveFromFavorites = () => {
+    setFavoriteCards((prevFavorites) => prevFavorites.filter((favRocket) => favRocket.id !== rocket.id));
+  };
 
-  // const isFavorite = favoriteCards.some((favRocket) => favRocket.id === rocket.id);
+  const isFavorite = favoriteCards.some((favRocket) => favRocket.id === rocket.id);
+
+  const handleButtonAction = () => {
+    return isFavorite ? handleRemoveFromFavorites() : handleAddToFavorites();
+  };
 
   return (
     <CardWrapper>
@@ -51,7 +57,8 @@ export const Card = ({ rocket, index }) => {
           <MainBtn text={'buy'} width={'278px'} />
 
           <FavouritesBtn
-            handleAddToFavorites={handleAddToFavorites}
+            handleButtonAction={handleButtonAction}
+            isFavorite={isFavorite}
           />
         </CardButtonsWrapper>
       </CardContainer>
