@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+
 import App from './App.tsx';
 
 const client = new ApolloClient({
@@ -14,7 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <RecoilRoot>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </RecoilRoot>
     </ApolloProvider>
 
   </React.StrictMode>

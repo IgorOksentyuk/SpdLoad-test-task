@@ -20,6 +20,7 @@ import { Card } from "../../molecules/Card/Card.tsx";
 import "./style.css";
 import arrowLeft from "../../../assets/arrow-left.png";
 import arrowRight from "../../../assets/arrow-right.png";
+import { Rocket } from "../../../interfaces/Rocket.ts";
 
 const ROCKETS_QUERY = gql`
   query ExampleQuery {
@@ -37,7 +38,8 @@ export const CardsSlider = () => {
   if (loading) return <p style={{ textAlign: 'center', fontSize: '36px' }}>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const rockets = data?.rockets;
+  const rockets: Rocket[] = data?.rockets;
+
   return (
     <CardsSliderWrapper id="cards-wrapper">
       <TopContainer>
@@ -68,9 +70,9 @@ export const CardsSlider = () => {
         }}
       >
         {
-          rockets.map(rocket => (
-            <SwiperSlide>
-              <Card rocket={rocket} key={rocket.id} />
+          rockets.map((rocket: Rocket, index: number) => (
+            <SwiperSlide key={rocket.id}>
+              <Card rocket={rocket} index={index} />
             </SwiperSlide>
           ))
         }

@@ -13,18 +13,19 @@ import {
 } from "./Header.styled.tsx";
 
 import headerLogo from '../../../assets/image_3.png';
+import { FavouritesBtnLink } from "../../atoms/FavouritesBtn/FavouritesBtnTemp.styled.tsx";
 
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <HeaderLink href="#">
+      <HeaderLink href="/">
         <HeaderLogo src={headerLogo} />
       </HeaderLink>
 
       <Navigation>
         <NavList>
           <ListItem>
-            <HeaderLink href="#">home</HeaderLink>
+            <HeaderLink href="/">home</HeaderLink>
           </ListItem>
 
           <ListItem>tours</ListItem>
@@ -34,7 +35,9 @@ export const Header = () => {
       </Navigation>
 
       <LoginWrapper>
-        <FavouritesBtn />
+        <FavouritesBtnLink href="/favourites">
+          <FavouritesBtn />
+        </FavouritesBtnLink>
         <MainBtn text={'sign in'} width={'163px'} />
       </LoginWrapper>
     </HeaderWrapper>

@@ -1,9 +1,9 @@
 import React from "react";
 import { FavouritesBtnTemp } from "./FavouritesBtnTemp.styled.tsx";
 
-export const FavouritesBtn = () => {
+export const FavouritesBtn = ({ handleAddToFavorites }) => {
   return (
-    <FavouritesBtnTemp>
+    <FavouritesBtnTemp onClick={handleAddToFavorites}>
       <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
         <path
           fillRule="evenodd"
