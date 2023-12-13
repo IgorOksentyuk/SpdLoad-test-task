@@ -4,7 +4,6 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/swiper-bundle.css';
 import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
 
 import {
   ArrowIcon,
@@ -21,16 +20,7 @@ import "./style.css";
 import arrowLeft from "../../../assets/arrow-left.png";
 import arrowRight from "../../../assets/arrow-right.png";
 import { Rocket } from "../../../interfaces/Rocket.ts";
-
-const ROCKETS_QUERY = gql`
-  query ExampleQuery {
-    rockets {
-      id
-      description
-      name
-    }
-  }
-`;
+import { ROCKETS_QUERY } from "../../../api/client.ts";
 
 export const CardsSlider = () => {
   const { loading, error, data } = useQuery(ROCKETS_QUERY);
