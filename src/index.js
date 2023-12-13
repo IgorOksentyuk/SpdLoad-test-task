@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 
 import App from './App.tsx';
 import { client } from './api/client.ts';
+import './assets/styles/normalize.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
